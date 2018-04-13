@@ -1,0 +1,2 @@
+# Platzigram
+Curso de platzi
