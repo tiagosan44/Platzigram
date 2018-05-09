@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.platzi.platzigram.view.CreateAccountActivity">
+    tools:context="com.platzi.platzigram.loggin.view.CreateAccountActivity">
 
 
     <include layout="@layout/actionbar_toolbar" ></include>

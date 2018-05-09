@@ -3,15 +3,37 @@
     package="com.platzi.platzigram">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera2"
+        android:required="false"/>
+
 
     <application
+        android:name=".PlatzigramApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LogginActivity">
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id"/>
+
+        <provider
+            android:authorities="com.platzi.platzigram"
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path"></meta-data>
+
+        </provider>
+
+        <activity android:name=".loggin.view.LogginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,26 +41,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.CreateAccountActivity"
-            android:parentActivityName=".LogginActivity">
+            android:name=".loggin.view.CreateAccountActivity"
+            android:parentActivityName=".loggin.view.LogginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LogginActivity" />
+                android:value=".loggin.view.LogginActivity" />
         </activity>
-        <activity
-            android:name=".ReferenciaActivity"
-            android:label="@string/title_activity_referencia"
-            android:theme="@style/AppTheme" />
         <activity android:name=".view.ContainerActivity" />
-
-        <activity android:name=".view.PictureDetailActivity"
+        <activity
+            android:name=".post.view.PictureDetailActivity"
             android:parentActivityName=".view.ContainerActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".view.ContainerActivity" />
-
         </activity>
+        <activity android:name=".post.view.NewPostActivity"></activity>
     </application>
 
 </manifest>

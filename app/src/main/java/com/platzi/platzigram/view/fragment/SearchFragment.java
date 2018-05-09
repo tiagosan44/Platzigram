@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.platzi.platzigram.R;
 import com.platzi.platzigram.adapter.PictureAdapterRecyclerView;
 import com.platzi.platzigram.model.Picture;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 public class SearchFragment extends Fragment {
 
 
+    private static final String TAG = "SearchFragment";
+
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -34,7 +37,7 @@ public class SearchFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         showToolBar("", false, view);
-
+        FirebaseCrash.log("Inicializando " + TAG);
         RecyclerView picturesRecycler = view.findViewById(R.id.searchRecyclerView);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false);
